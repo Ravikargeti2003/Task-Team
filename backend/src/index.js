@@ -2,6 +2,15 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 
+const { execSync } = require('child_process');
+
+try {
+  console.log("Running DB init...");
+  execSync('node src/db-init.js', { stdio: 'inherit' });
+} catch (error) {
+  console.log("DB init already done or failed, continuing...");
+}
+
 const authRoutes = require('./routes/auth');
 const projectRoutes = require('./routes/projects');
 const taskRoutes = require('./routes/tasks');
