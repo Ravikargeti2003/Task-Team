@@ -2,6 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 
+console.log("DB_NAME:", process.env.DB_NAME);
+
 const { execSync } = require('child_process');
 
 try {
